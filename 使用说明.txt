@@ -1,0 +1,6 @@
+1、在主目录下新建文件workarea,将temp.tar.zip复制到此处并提取；
+2、temp目录下有四个程序，gr-tutorial、gr-tutorial_1实现对信号进行时空编码并输出；gr-tutorial_2实现信道估计和最大合并比接收；gr-tutorial_3用来去预编码提取信号；
+需要在每个程序下的build文件夹下分别进行：cmake ../;make ;sudo make install;sudp ldconfig安装工作；
+3、主程序包括发送程序：MIMO_alamouti_tx；接收程序：MIMO_alamouti_rx;
+发送程序采用qpsk进行编码，并加入bpsk的预编码信号组成混合信号；然后经过时空编码后分由两路经usrp输出；
+接收程序接收信号后进行信道估计，然后对两路信号进行最大合并比接收，再经过去预编码，qpsk解调后输出字节信号。
